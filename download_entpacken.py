@@ -4,8 +4,10 @@ import zipfile
 
 
 def download(url):
-    zip_name = url[56:]  # name from zip file
-    folder_name = url[56:-4]  # folder name for unzipping
+    zip_name = url.rsplit('/', 1)[-1]  # get name after last slash
+    folder_name = url.rsplit('.', 2)[1]  #
+    if '/' in folder_name:
+        folder_name = folder_name.rsplit('/', 1)[-1]  # remove everything after point
     wd_path = os.getcwd()  # path from current working dir
     path = os.path.join(wd_path, folder_name)  # create folder for unzipping
 
