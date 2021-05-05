@@ -18,7 +18,6 @@ def main():
         folder_name = folder_name.rsplit('/', 1)[-1]  # remove everything after point
     wd_path = os.getcwd()  # path from current working dir
     path = os.path.join(wd_path, folder_name)  # create folder for unzipping
-    print(path)
 
     download.download(url, zip_name)
     unzip.unzip(path, zip_name)

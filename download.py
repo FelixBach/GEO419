@@ -9,4 +9,4 @@ def download(url, zip_name):
             for chunk in r.iter_content(chunk_size=128):
                 fd.write(chunk)
     else:
-        print('zip-file exists')
+        print(f'Ziped download file exists')
