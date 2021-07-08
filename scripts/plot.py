@@ -1,17 +1,21 @@
 import gdal
 import rasterio as rio
+from rasterio.plot import show
 import numpy as np
 from matplotlib import pyplot as plt
 import cv2 as cv
 import geopandas as gpd
+import rioxarray as rxr
 
 
-def plot_raseter():
+def plot_raster():
     file = 'C:/Users/Felix/PycharmProjects/419a/GEO419_Testdatensatz/lin_to_db/S1B__IW___A_20180828T171447_VV_NR_Orb_Cal_ML_TF_TC.tif'
 
     raster = gdal.Open(file)
 
     raster_arr = raster.GetRasterBand(1).ReadAsArray()
+
+    # raster_arr = raster_arr.where(raster_arr != -99)
 
     min_perc = 2
     max_perc = 98
@@ -19,12 +23,12 @@ def plot_raseter():
     res_band_db = (raster_arr.astype(float) - lo / (hi - lo))
     res_band_db[res_band_db == np.percentile(raster_arr, max_perc)] = -99
 
-    res_band_db = np.maximum(np.minimum(raster_arr*255, 255), 0).astype(np.float32)
+    res_band_db = np.maximum(np.minimum(raster_arr * 255, 255), 0).astype(np.float32)
 
-    plt.figure()
-    plt.imshow(res_band_db)
-    plt.colorbar()
-    plt.show()
+    # plt.figure()
+    # plt.imshow(res_band_db)
+    # plt.colorbar()
+    # plt.show()
 
     plt.figure()
     plt.imshow(raster_arr, cmap='gray')
@@ -32,8 +36,60 @@ def plot_raseter():
     plt.show()
 
 
-plot_raseter()
+# plot_raseter()
 
+
+def test():
+    fp = 'C:/Users/Felix/PycharmProjects/419a/GEO419_Testdatensatz/lin_to_db/S1B__IW___A_20180828T171447_VV_NR_Orb_Cal_ML_TF_TC.tif'
+    raster = rxr.open_rasterio(fp)
+    print("The CRS of this data is:", raster.rio.crs)
+    # im = raster.plot.imshow()
+
+    plt.figure()
+    plt.imshow(raster)
+    plt.colorbar()
+    plt.show()
+
+    # show((raster, 1), cmap='Greys')
+
+
+# test()
+
+def rasterio_plot():
+    fp = 'C:/Users/Felix/PycharmProjects/419a/GEO419_Testdatensatz/lin_to_db/S1B__IW___A_20180828T171447_VV_NR_Orb_Cal_ML_TF_TC.tif'
+    # with rio.open(fp) as dem_src:
+    #     sen1 = dem_src.read(1)
+    #     sen1 = dem_src.profile
+    # print(sen1)
+    #
+    # im_path = plt.imread(fp)
+    # plt.imshow(im_path)
+    # show(sen1)
+
+    # data= rio.open(fp)
+    # print(data.meta)
+    # raster_meta = data.profile
+    # print(data.indexes)
+    # raster_array = data.read(1)
+    # print(raster_array)
+    # print(raster_array.shape)
+    # show(data, cmap='Greys')
+    # rio.plot.show(data, adjust='None', cmap='gray', title='Test')
+
+    # plt.pcolor() array wird dir ekt geladen
+    # plt.show()
+
+    with rio.open(fp) as fp_src:
+        fp = fp_src.read(1)
+
+    fig, ax = plt.subplots(figsize=(10, 5))
+    fp_plot = ax.imshow(fp, cmap='Greys')
+    ax.set_title('test')
+    ax.set_axis_off()
+    plt.show()
+
+
+# rasterio_plot()
 
 # def plot():
 #     file = "C:/Users/Felix/PycharmProjects/419a/GEO419_Testdatensatz/lin_to_db/S1B__IW___A_20180828T171447_VV_NR_Orb_Cal_ML_TF_TC.tif"
