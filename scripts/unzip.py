@@ -4,8 +4,10 @@ import os
 
 def unzip(url, path):
     zip_name = url.rsplit('/', 1)[-1]  # get name after last slash
+    # print(zip_name)
     unzip_folder = zip_name.split('.')[0]
     unzip_folder = os.path.join(path, unzip_folder)
+    zip_name = os.path.join(path, zip_name)
 
     try:
         os.mkdir(unzip_folder)

@@ -7,7 +7,7 @@ import os
 def calculation(band_1):
     db_pixel = []
     temp_log = np.log10(band_1) * 10
-    temp_log[temp_log == -np.inf] = -99
+    temp_log[temp_log == -np.inf] = 'NaN'
     temp_log[temp_log == -0] = -1
     db_res = temp_log
     db_pixel.append(db_res)
