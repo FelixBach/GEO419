@@ -1,5 +1,6 @@
 from scripts import download, unzip, processing_img
 from datetime import datetime
+import os
 
 start_time = datetime.now()
 
@@ -7,13 +8,15 @@ start_time = datetime.now()
 
 
 def main():
-    # url = 'https://upload.uni-jena.de/data/60e5d639dd52a0.78161215/GEO419_Testdatensatz.zip'
+    url = 'https://upload.uni-jena.de/data/60e5d639dd52a0.78161215/GEO419_Testdatensatz.zip'
 
-    print(f'Type or copy the path to working directory')
-    path = input()
+    # print(f'Type or copy the path to working directory')
+    # path = input()
+    path = os.getcwd()
+    print(path)
 
-    print(f'Type or copy the URL')
-    url = input()
+    # print(f'Type or copy the URL')
+    # url = input()
 
     download.download(url, path)
     unzip.unzip(url, path)

@@ -16,4 +16,11 @@ def unzip(url, path):
 
     except FileExistsError:
         if FileExistsError:
-            print(f'Folder {unzip_folder} already exists')
+            if len(os.listdir(unzip_folder)) == 0:
+                print("Directory is empty")
+                with zipfile.ZipFile(zip_name, 'r') as zip_ref:
+                    zip_ref.extractall(unzip_folder)
+                    if not os.path.isfile(unzip_folder):
+                        print(f'Unziping data')
+            else:
+                print(f'Folder {unzip_folder} and data already exists')
