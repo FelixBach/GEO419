@@ -19,15 +19,23 @@ def plot(path):
 
     for j, img in enumerate(file_list):
         raster = rio.open(file_list[j])
-        fig, ax = plt.subplots()
-        ax.set_xlabel('Easting')
-        ax.set_ylabel('Northing')
-        cmap = plt.get_cmap('gist_gray')
         data = raster.read()
+
         min_per = np.nanpercentile(data, 2)
         max_per = np.nanpercentile(data, 98)
 
-        fig.colorbar(cm.ScalarMappable(norm=colors.Normalize(vmin=min_per, vmax=max_per), cmap=cmap))
-        show(raster, transform=raster.transform, vmin=min_per, vmax=max_per, ax=ax, cmap=cmap, title='Result')
+        fig, ax = plt.subplots()
 
+        cmap = plt.get_cmap('gist_gray')
+
+        colb = plt.colorbar(cm.ScalarMappable(norm=colors.Normalize(vmin=min_per, vmax=max_per), cmap=cmap))
+
+        ax.set_xlabel('Easting')
+        ax.set_ylabel('Northing')
+        colb.set_label('Backscatter in dB')
+
+        # fig.colorbar(cm.ScalarMappable(norm=colors.Normalize(vmin=min_per, vmax=max_per), cmap=cmap))
+        show(raster, transform=raster.transform, vmin=min_per, vmax=max_per, ax=ax, cmap=cmap, title='Result')
         plt.show()
+
+    file_list.clear()
