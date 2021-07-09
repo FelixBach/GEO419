@@ -5,6 +5,16 @@ import os
 
 
 def calculation(band_1):
+    """
+    this function is used to convert linear values in dB values
+    ----------
+    band_1: numpy.ndarray
+        Is the URL from which the download should be executed
+    Returns
+    ----------
+    list
+        returns a list with the new converted dB values
+    """
     db_pixel = []
     temp_log = np.log10(band_1) * 10
     temp_log[temp_log == -np.inf] = 'NaN'
@@ -16,6 +26,17 @@ def calculation(band_1):
 
 
 def open_raster_file(url, path):
+    """
+    this function is used to process the unziped data
+    ----------
+    url: string
+        Is the URL from which the download should be executed
+    path: string
+        Is the path where the download file and other folders are created and the result is saved
+    Returns
+    ----------
+    function has no return value
+    """
     zip_name = url.rsplit('/', 1)[-1]  # get name after last slash
     unzip_folder = zip_name.split('.')[0]
     raster_path = os.path.join(path, unzip_folder)

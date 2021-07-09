@@ -3,6 +3,17 @@ import requests
 
 
 def download(url, path):
+    """
+    this function is used to download a file from a URL
+    ----------
+    url: string
+        Is the URL from which the download should be executed
+    path: string
+        Is the path where the download file and other folders are created and the result is saved
+    Returns
+    ----------
+    function has no return value
+    """
     zip_name = url.rsplit('/', 1)[-1]  # get name after last slash
     zip_path = os.path.join(path, zip_name)
 
