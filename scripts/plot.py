@@ -5,6 +5,7 @@ import rasterio as rio
 from rasterio.plot import show
 from matplotlib import pyplot as plt
 from matplotlib import colors, cm
+from matplotlib.ticker import FormatStrFormatter
 
 
 def plot(path):
@@ -32,9 +33,9 @@ def plot(path):
 
         ax.set_xlabel('Easting')
         ax.set_ylabel('Northing')
+        ax.yaxis.set_major_formatter(FormatStrFormatter('%.0f'))
         colb.set_label('Backscatter in dB')
 
-        # fig.colorbar(cm.ScalarMappable(norm=colors.Normalize(vmin=min_per, vmax=max_per), cmap=cmap))
         show(raster, transform=raster.transform, vmin=min_per, vmax=max_per, ax=ax, cmap=cmap, title='Result')
         plt.show()
 
