@@ -4,6 +4,7 @@ import download
 import plot
 import processing_img
 import unzip
+import os
 
 start_time = datetime.now()
 
@@ -24,7 +25,7 @@ def main():
     download.download(url, path)
     unzip.unzip(url, path)
     processing_img.open_raster_file(url, path)
-    plot.rasterio_plot(path)
+    plot.plot(path)
 
     end_time = datetime.now()
     print(f"\n end-time =", end_time - start_time, "Hr:min:sec \n")
