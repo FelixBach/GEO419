@@ -29,6 +29,7 @@ def plot(path):
         file_list = [w.replace('\\', '/') for w in file_list]
         file_name = file_list[i].rsplit('/', 1)[-1]
         print(file_name)
+        zip_name = file_name[0:len(file_name)-4]
 
     for j, img in enumerate(file_list):
         raster = rio.open(file_list[j])
@@ -49,6 +50,8 @@ def plot(path):
         colb.set_label('Backscatter in dB')
 
         show(raster, transform=raster.transform, vmin=min_per, vmax=max_per, ax=ax, cmap=cmap, title='Result')
+
+        plt.savefig(path + "/" + zip_name + ".pdf", bbox_inches='tight')
         plt.show()
 
     file_list.clear()

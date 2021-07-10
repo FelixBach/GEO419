@@ -1,0 +1,2 @@
+# Überschrift
+This package is based on a project in the module "GEOG 419 - Modullare Programmierung in der FE" from the Friedrich-Schiller-Universität Jena and was developed by Felix Bachmann and Maximilian Nestler.
