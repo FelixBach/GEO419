@@ -10,7 +10,7 @@ else:
     with open(os.path.join(directory, 'README.md')) as f:
         long_description = f.read()
 
-setup(name='419a',
+setup(name='a419a',
       packages=find_packages(),
       include_package_data=True,
       setup_requires=['setuptools_scm'],
