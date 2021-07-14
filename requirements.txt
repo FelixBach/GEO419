@@ -1,8 +1,7 @@
 rasterio
 numpy
-zipfile
+bzip2
 requests
 datetime
 matplotlib
-PIL
-glob
+glob2
