@@ -2,4 +2,4 @@ rasterio
 numpy
 requests
 matplotlib
-glob3
+glob2 0.7

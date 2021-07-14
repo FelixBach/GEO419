@@ -26,7 +26,7 @@ setup(name='419a',
                         'requests',
                         'datetime',
                         'matplotlib',
-                        'glob3'],
+                        'glob2 0.7'],
       python_requires='>=3.6.0',
       url='https://github.com/FelixBach/419a.git',
       author='Felix Bachmann',  # 'Maximilian Nestler'  # how to add second author?
