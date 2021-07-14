@@ -8,7 +8,9 @@ It contains moduls/algorithms to download, unzip and preprocess Sentinel-1-image
 - Plots the result, saves it as PDF in the directory
 - Checks if the processed files already exist (zip-file, tif-file, result)
 - It is possible to run the package from the command line: ```"cd\yourworkspace\python main.py"```
-- In case you have git installed you can install the package as follows: 
+
+In case you have git installed you can install the package as follows: 
+
   ```pip install git+https://https://github.com/FelixBach/a419a.git```
 
 - If there are problems with the package, please open an [issue](https://github.com/FelixBach/419a/issues)
