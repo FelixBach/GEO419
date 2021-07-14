@@ -1,7 +1,5 @@
 rasterio
 numpy
-bzip2
 requests
-datetime
 matplotlib
-glob2
+glob3
