@@ -31,6 +31,7 @@ def plot(path):
         # print(file_name)
         pdf_name = file_name[0:len(file_name)-4]
 
+
     for j, img in enumerate(file_list):
         raster = rio.open(file_list[j])
         data = raster.read()
@@ -39,6 +40,8 @@ def plot(path):
         max_per = np.nanpercentile(data, 98)
 
         fig, ax = plt.subplots(figsize=(10, 8))
+
+        title = file_name[10:len(file_name)-24]
 
         cmap = plt.get_cmap('gist_gray')
 
@@ -49,7 +52,7 @@ def plot(path):
         ax.yaxis.set_major_formatter(FormatStrFormatter('%.0f'))
         colb.set_label('Backscatter in dB')
 
-        show(raster, transform=raster.transform, vmin=min_per, vmax=max_per, ax=ax, cmap=cmap, title='Result')
+        show(raster, transform=raster.transform, vmin=min_per, vmax=max_per, ax=ax, cmap=cmap, title=title)
 
         plt.savefig(f'{path}/{pdf_name}.pdf', bbox_inches='tight')
         plt.show()
