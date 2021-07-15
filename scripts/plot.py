@@ -38,7 +38,7 @@ def plot(path):
         min_per = np.nanpercentile(data, 2)
         max_per = np.nanpercentile(data, 98)
 
-        fig, ax = plt.subplots()
+        fig, ax = plt.subplots(figsize=(10, 8))
 
         cmap = plt.get_cmap('gist_gray')
 
