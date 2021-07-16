@@ -9,6 +9,17 @@ from matplotlib.ticker import FormatStrFormatter
 
 
 def plot(path):
+    """
+    this function is used to plot the result
+    ----------
+    url: string
+        Is the URL from which the download should be executed
+    path: string
+        Is the path where the download file and other folders are created and the result is saved
+    Returns
+    ----------
+    function has no return value
+    """
     proc_folder = 'processed_img'
     raster_path = os.path.join(path, proc_folder)
 
@@ -16,7 +27,10 @@ def plot(path):
     for i, name in enumerate(glob.glob(raster_path + str('/*.tif'))):
         file_list.append(name)
         file_list = [w.replace('\\', '/') for w in file_list]
-        # file_name = file_list[i].rsplit('/', 1)[-1]
+        file_name = file_list[i].rsplit('/', 1)[-1]
+        # print(file_name)
+        pdf_name = file_name[0:len(file_name)-4]
+
 
     for j, img in enumerate(file_list):
         raster = rio.open(file_list[j])
@@ -25,7 +39,9 @@ def plot(path):
         min_per = np.nanpercentile(data, 2)
         max_per = np.nanpercentile(data, 98)
 
-        fig, ax = plt.subplots()
+        fig, ax = plt.subplots(figsize=(10, 8))
+
+        title = file_name[10:len(file_name)-24]
 
         cmap = plt.get_cmap('gist_gray')
 
@@ -35,10 +51,10 @@ def plot(path):
         ax.set_ylabel('Northing')
         ax.yaxis.set_major_formatter(FormatStrFormatter('%.0f'))
         colb.set_label('Backscatter in dB')
-        show(raster, transform=raster.transform, vmin=min_per, vmax=max_per, ax=ax, cmap=cmap, title='Result')
-        plt.tight_layout()
-        plt.savefig(path + "\\line_plot" + str('.pdf'))
-        plt.show()
 
+        show(raster, transform=raster.transform, vmin=min_per, vmax=max_per, ax=ax, cmap=cmap, title=title)
+
+        plt.savefig(f'{path}/{pdf_name}.pdf', bbox_inches='tight')
+        plt.show()
 
     file_list.clear()
