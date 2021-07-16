@@ -6,6 +6,7 @@ import unzip
 import processing_img
 import plot
 
+
 start_time = datetime.now()
 
 # TODO: kleines readme schreiben für das Skript
@@ -17,7 +18,7 @@ def main():
     print(f'Type or copy the path to working directory')
     # path = input()
     path = os.getcwd()
-    # print(path)
+    print(path)
 
     print(f'Type or copy the URL')
     # url = input()

@@ -53,7 +53,7 @@ def plot(path):
         colb.set_label('Backscatter in dB')
 
         show(raster, transform=raster.transform, vmin=min_per, vmax=max_per, ax=ax, cmap=cmap, title=title)
-
+        plt.tight_layout()
         plt.savefig(f'{path}/{pdf_name}.pdf', bbox_inches='tight')
         plt.show()
 
