@@ -1,3 +1,7 @@
-rasterio
-numpy
-matplotlib
+rasterio~=1.2.6
+numpy~=1.21.0
+matplotlib~=3.4.2
+Sphinx~=4.1.1
+DateTime~=4.3
+requests~=2.22.0
+setuptools~=45.2.0

@@ -9,17 +9,12 @@ from matplotlib.ticker import FormatStrFormatter
 
 
 def plot(path):
+    """ This function is used to plot the result
+
+    :param path: string: Is the path where the download file and other folders are created and the result is saved
+    :return: Function has no return value
     """
-    this function is used to plot the result
-    ----------
-    url: string
-        Is the URL from which the download should be executed
-    path: string
-        Is the path where the download file and other folders are created and the result is saved
-    Returns
-    ----------
-    function has no return value
-    """
+
     proc_folder = 'processed_img'
     raster_path = os.path.join(path, proc_folder)
 
@@ -30,7 +25,6 @@ def plot(path):
         file_name = file_list[i].rsplit('/', 1)[-1]
         # print(file_name)
         pdf_name = file_name[0:len(file_name)-4]
-
 
     for j, img in enumerate(file_list):
         raster = rio.open(file_list[j])

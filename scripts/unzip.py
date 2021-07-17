@@ -3,16 +3,11 @@ import os
 
 
 def unzip(url, path):
-    """
-    this function is used to unzip the download file
-    ----------
-    url: string
-        Is the URL from which the download should be executed
-    path: string
-        Is the path where the download file and other folders are created and the result is saved
-    Returns
-    ----------
-    function has no return value
+    """ This function is used to unzip the data
+
+    :param url: string: Is the URL from which the download should be executed
+    :param path: string: Is the path where the download file and other folders are created and the result is saved
+    :return: Function has no return value
     """
     zip_name = url.rsplit('/', 1)[-1]  # get name after last slash
     # print(zip_name)
