@@ -11,6 +11,6 @@ It contains moduls/algorithms to download, unzip and preprocess Sentinel-1-image
 
 In case you have git installed you can install the package as follows: 
 
-  ```pip install git+https://https://github.com/FelixBach/a419a.git```
+  ```pip install git+https://github.com/FelixBach/GEO419.git```
 
 - If there are problems with the package, please open an [issue](https://github.com/FelixBach/419a/issues)
