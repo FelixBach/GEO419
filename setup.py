@@ -17,7 +17,7 @@ setup(name='GEO419',
       use_scm_version=True,
       description='GEO 419A Homework',
       classifiers=[
-          'License :: FSF Approved :: WTFPL License',
+          'License :: FSF Approved :: GPLv3',
           'Operating System :: Microsoft :: Windows',
           'Programming Language :: Python',
       ],
