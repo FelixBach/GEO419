@@ -10,7 +10,7 @@ else:
     with open(os.path.join(directory, 'README.md')) as f:
         long_description = f.read()
 
-setup(name='GEO_FE',
+setup(name='GEO419',
       packages=find_packages(),
       include_package_data=True,
       setup_requires=['setuptools_scm'],
@@ -27,7 +27,7 @@ setup(name='GEO_FE',
                         'datetime',
                         'matplotlib'],
       python_requires='>=3.6.0',
-      url='https://github.com/FelixBach/419a.git',
+      url='https://github.com/FelixBach/419GEO.git',
       author='Felix Bachmann',  # 'Maximilian Nestler'  # how to add second author?
       author_email='Felix.Bachmann@uni-jena.de',  # 'Maximilian.Nestler@uni-jena.de'
       license='GPLv3',
