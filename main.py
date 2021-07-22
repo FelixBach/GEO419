@@ -12,11 +12,19 @@ start_time = datetime.now()
 def main():
     url = 'https://upload.uni-jena.de/data/60e5d639dd52a0.78161215/GEO419_Testdatensatz.zip'
 
-    print(f'Type or copy the path to working directory')
-    # path = input()
-    path = "/home/felix/Dokumente"
+    print(f'Type or copy the entire path to the working directory')
+    print(f'Example path: "C:/folder_name/"')
+    path = input()
+    # path = "/home/felix/Dokumente"
+
+    if os.path.exists(path):
+        print(f'Working directory is valid.')
+    else:
+        if not os.path.exists(path):
+            os.makedirs(os.path.dirname(path))
+            print(f'Working directory is created')
+
     # path = os.getcwd()
-    print(path)
 
     print(f'Type or copy the URL. Make sure that the URL ends on ".zip". Otherwise its can not be downloaded or unziped')
     # url = input()
