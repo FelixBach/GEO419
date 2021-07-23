@@ -6,33 +6,40 @@ from scripts import unzip
 from scripts import processing_img
 from scripts import plot
 
+
 start_time = datetime.now()
 
 
 def main():
     url = 'https://upload.uni-jena.de/data/60e5d639dd52a0.78161215/GEO419_Testdatensatz.zip'
-
-    print(f'Type or copy the entire path to the working directory')
+    w_url = 'https://upload.uni-jena.de/data/660e5d639dd52a0.78161215/GEO419_Testdatensatz.zip'
+    print(f'Type or copy the entire path to the working directory in the terminal/prompt.')
     print(f'Example path: "C:/folder_name/"')
-    path = input()
-    # path = "/home/felix/Dokumente"
+    # path = input()
+    path = "/home/felix/Dokumente/"
 
     if os.path.exists(path):
         print(f'Working directory is valid.')
     else:
         if not os.path.exists(path):
-            os.makedirs(os.path.dirname(path))
-            print(f'Working directory is created')
+            try:
+                os.makedirs(os.path.dirname(path))
+                print(f'Working directory is created')
+            except FileExistsError:
+                print(f'Working directory can not be created. Type another path.')
+                # while
+                # path = input()
 
     # path = os.getcwd()
 
-    print(f'Type or copy the URL. Make sure that the URL ends on ".zip". Otherwise its can not be downloaded or unziped')
+    print(f'Type or copy the URL. Make sure that the URL ends on ".zip". Otherwise its can not be downloaded or '
+          f'unzipped.')
     # url = input()
 
     download.download(url, path)
-    unzip.unzip(url, path)
-    processing_img.open_raster_file(url, path)
-    plot.plot(path)
+    #unzip.unzip(url, path)
+    #processing_img.open_raster_file(url, path)
+    #plot.plot(path)
 
     end_time = datetime.now()
     print(f"\n end-time =", end_time - start_time, "Hr:min:sec \n")

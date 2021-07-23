@@ -17,6 +17,8 @@ def download(url, path):
 
         zip_name = url.rsplit('/', 1)[-1]  # get name after last slash
         zip_path = os.path.join(path, zip_name)
+        print(zip_path)
+        print(zip_name)
 
         if not os.path.isfile(zip_path):
             print(f'Downloading file')
@@ -31,7 +33,12 @@ def download(url, path):
         while av != 200:
             print(f'URL is not valid. Please enter a new one and hit enter. '
                   f'Make sure that the url ends on ".zip" otherwise it can not be unziped.')
+            print(f'Type s to stop the script.')
             url = input()
+
+            if url == "s":
+                break
+
             av = requests.head(url).status_code
             zip_url = url.rsplit('.', 1)[-1]
             if av == 200 and zip_url == 'zip':
