@@ -20,7 +20,7 @@ def calculation(band_1):
     return db_pixel
 
 
-def open_raster_file(url, path):
+def process_raster(url, path):
     """this function is used to process the unziped data
 
     :param url: string: Is the URL from which the download should be executed

@@ -12,7 +12,7 @@ start_time = datetime.now()
 
 def main():
     url = 'https://upload.uni-jena.de/data/60e5d639dd52a0.78161215/GEO419_Testdatensatz.zip'
-    # url = 'https://upload.uni-jena.de/data/660e5d639dd52a0.78161215/GEO419_Testdatensatz.zip'  # w_url
+    #url = 'https://upload.uni-jena.de/data/660e5d639dd52a0.78161215/GEO419_Testdatensatz.zip'  # w_url
     print(f'Example path (Windows): "C:/folder_name/"')
     print(f'Example path (Linux): /home/user/Documents/ \n')
     print(f'Type or copy the entire path to the working directory in the terminal/prompt. \n')
@@ -22,7 +22,7 @@ def main():
     special_characters = "!@#$%^&*()-+?_=,<>"
 
     if any(c in special_characters for c in path):
-        print(f'Path contains special character(s). Please type a new one.')
+        print(f'Path contains special character(s).')
         while any(c in special_characters for c in path):
             path = input()
     else:
@@ -43,9 +43,9 @@ def main():
           f'unzipped.')
     # url = input()
 
-    #download.download(url, path)
-    #unzip.unzip(url, path)
-    #processing_img.open_raster_file(url, path)
+    download.download(url, path)
+    unzip.unzip(url, path)
+    processing_img.process_raster(url, path)
     #plot.plot(path)
 
     end_time = datetime.now()

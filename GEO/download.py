@@ -27,9 +27,9 @@ def download(url, path):
             print(f'Download file {zip_name} already exists')
 
     else:
-        print(f'URL is not valid.')
+        print(f'URL is not valid. \n')
         while av != 200 or zip_url != "zip":
-            print(f'Type q or URL')
+            print(f'You can type URL or q to stop the download.')
             url = input()
             if url == "q":
                 print(f'Download stopped.')
