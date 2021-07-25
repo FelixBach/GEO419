@@ -1,10 +1,10 @@
 from datetime import datetime
 
 import os
-from scripts import download
-from scripts import unzip
-from scripts import processing_img
-from scripts import plot
+from GEO import download
+from GEO import unzip
+from GEO import processing_img
+from GEO import plot
 
 
 start_time = datetime.now()
@@ -12,7 +12,7 @@ start_time = datetime.now()
 
 def main():
     url = 'https://upload.uni-jena.de/data/60e5d639dd52a0.78161215/GEO419_Testdatensatz.zip'
-    w_url = 'https://upload.uni-jena.de/data/660e5d639dd52a0.78161215/GEO419_Testdatensatz.zip'
+    # url = 'https://upload.uni-jena.de/data/660e5d639dd52a0.78161215/GEO419_Testdatensatz.zip'  # w_url
     print(f'Type or copy the entire path to the working directory in the terminal/prompt.')
     print(f'Example path: "C:/folder_name/"')
     # path = input()
@@ -39,7 +39,7 @@ def main():
     download.download(url, path)
     #unzip.unzip(url, path)
     #processing_img.open_raster_file(url, path)
-    #plot.plot(path)
+    plot.plot(path)
 
     end_time = datetime.now()
     print(f"\n end-time =", end_time - start_time, "Hr:min:sec \n")

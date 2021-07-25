@@ -10,7 +10,7 @@ else:
     with open(os.path.join(directory, 'README.md')) as f:
         long_description = f.read()
 
-setup(name='GEO419',
+setup(name='GEO',
       packages=find_packages(),
       include_package_data=True,
       setup_requires=['setuptools_scm'],
