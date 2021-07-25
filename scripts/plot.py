@@ -35,7 +35,10 @@ def plot(path):
 
         fig, ax = plt.subplots(figsize=(10, 8))
 
-        title = file_name[10:len(file_name)-24]
+        title = file_list[j].rsplit('/', 1)[-1]
+        title = title[:-4]
+        print(file_list)
+        print(title)
 
         cmap = plt.get_cmap('gist_gray')
 
@@ -48,7 +51,7 @@ def plot(path):
 
         show(raster, transform=raster.transform, vmin=min_per, vmax=max_per, ax=ax, cmap=cmap, title=title)
         plt.tight_layout()
-        plt.savefig(f'{path}/{pdf_name}.pdf', bbox_inches='tight')
-        plt.show()
+        plt.savefig(f'{path}/{title}.pdf', bbox_inches='tight')
+        # plt.show()
 
     file_list.clear()
