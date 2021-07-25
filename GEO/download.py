@@ -51,6 +51,5 @@ def download(url, path):
                                 fd.write(chunk)
                     else:
                         print(f'Download file {zip_name} already exists')
-                    break
             else:
                 pass
