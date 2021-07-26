@@ -38,7 +38,7 @@ def process_raster(url, path):
         file_name = file_list[i].rsplit('/', 1)[-1]
 
         for j, file in enumerate(file_list):
-            with rio.open(file_list[i]) as src:
+            with rio.open(file_list[j]) as src:
                 band_1 = src.read(1)
                 band_1 = np.array(band_1)
 
@@ -47,7 +47,6 @@ def process_raster(url, path):
                 db_pixel = calculation(band_1)
 
                 with rio.open(file_list[j]) as src:
-                    ras_data = src.read()
                     ras_meta = src.profile
 
                 # make any necessary changes to raster properties, e.g.:
