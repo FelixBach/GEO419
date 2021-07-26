@@ -61,7 +61,7 @@ def process_raster(url, path):
                 else:
                     print(f'Output folder exists')
 
-                img_out_name = os.path.join(out_folder_path, str('lin_to_db_' + file_name[:30]) + str(".tif"))
+                img_out_name = os.path.join(out_folder_path, str('lin_to_db_' + file_name))
 
                 if not os.path.isfile(img_out_name):
                     with rio.open(img_out_name, 'w', **ras_meta) as dst:
