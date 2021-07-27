@@ -9,12 +9,11 @@ from matplotlib.ticker import FormatStrFormatter
 
 
 def plot(path):
-    """ This function is used to plot the result
+    """ This function is used to plot the result.
 
-    :param path: string: Is the path where the download file and other folders are created and the result is saved
-    :return: Function has no return value
+    :param path: string: Is the path where the download file and other folders are created and the result is saved.
+    :return: Function has no return value.
     """
-
     proc_folder = 'processed_img'
     raster_path = os.path.join(path, proc_folder)
 
