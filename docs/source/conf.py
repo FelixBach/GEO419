@@ -14,17 +14,19 @@
 #
 import os
 import sys
+import datetime
 sys.path.insert(0, os.path.abspath('../..'))
 sys.setrecursionlimit(1500)
 
 # -- Project information -----------------------------------------------------
 
 project = 'GEO'
-copyright = '2021, Felix Bachmann, Maximillian Nestler'
 author = 'Felix Bachmann, Maximillian Nestler'
+year = datetime.datetime.now().year
+copyright = '{}, {}'.format(year, author)
 
 # The short X.Y version
-version = ''
+version = '0.1'
 # The full version, including alpha/beta/rc tags
 release = '0.1'
 
@@ -40,6 +42,10 @@ release = '0.1'
 # ones.
 extensions = [
     'sphinx.ext.autodoc',
+    'sphinx.ext.doctest',
+    'sphinx.ext.coverage',
+    'sphinx.ext.imgmath',
+    'sphinx.ext.viewcode'
 ]
 
 # Add any paths that contain templates here, relative to this directory.
@@ -102,7 +108,7 @@ html_theme = 'sphinx_rtd_theme'
 # -- Options for HTMLHelp output ---------------------------------------------
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = 'GEOdoc'
+htmlhelp_basename = '{}doc'.format(project)
 
 
 # -- Options for LaTeX output ------------------------------------------------
@@ -129,17 +135,18 @@ latex_elements = {
 # (source start file, target name, title,
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
-    (master_doc, 'GEO.tex', 'GEO Documentation',
-     'Felix Bachmann', 'manual'),
+    (master_doc,
+     '{}.tex'.format(project),
+     u'{} Documentation'.format(project),
+     author, 'manual'),
 ]
-
 
 # -- Options for manual page output ------------------------------------------
 
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    (master_doc, 'geo', 'GEO Documentation',
+    (master_doc, project, u'{} Documentation'.format(project),
      [author], 1)
 ]
 
@@ -150,8 +157,8 @@ man_pages = [
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 texinfo_documents = [
-    (master_doc, 'GEO', 'GEO Documentation',
-     author, 'GEO', 'One line description of project.',
+    (master_doc, project, u'{} Documentation'.format(project),
+     author, project, 'One line description of project.',
      'Miscellaneous'),
 ]
 

@@ -21,7 +21,7 @@ def calculation(band_1):
 
 
 def process_raster(url, path):
-    """this function is used to process the unziped data
+    """This function is used to process the unziped data
 
     :param url: string: Is the URL from which the download should be executed
     :param path: string: Is the path where the download file and other folders are created and the result is saved

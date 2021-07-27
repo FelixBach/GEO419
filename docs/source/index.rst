@@ -10,6 +10,11 @@ Welcome to GEO's documentation!
    :maxdepth: 2
    :caption: Contents:
 
+url_path
+==================================
+.. automodule:: GEO.url_path
+   :members:
+
 download
 ==================================
 .. automodule:: GEO.download
