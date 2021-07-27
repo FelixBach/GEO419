@@ -13,13 +13,15 @@ def url_path():
     url = 'https://upload.uni-jena.de/data/60e5d639dd52a0.78161215/GEO419_Testdatensatz.zip'
     #url = 'https://upload.uni-jena.de/data/660e5d639dd52a0.78161215/GEO419_Testdatensatz.zip'  # w_url
 
+    special_characters = "!@#$%^&*()-+?_=,<>"
+
+    print(f'First, the path of the working directory must be entered.')
     print(f'Example path (Windows): "C:/folder_name/"')
     print(f'Example path (Linux): /home/user/Documents/ \n')
+    print(f'Special Characters like {special_characters} are not allowed in the path name \n')
     print(f'Type or copy the entire path to the working directory in the terminal/prompt. \n')
     # path = input()
     path = "/home/felix/Dokumente/"
-
-    special_characters = "!@#$%^&*()-+?_=,<>"
 
     if any(c in special_characters for c in path):
         print(f'Path contains special character(s). Please type or copy a new path \n')
@@ -36,10 +38,8 @@ def url_path():
                 except FileExistsError:
                     print(f'Working directory already exists.')
 
-    # path = os.getcwd()
-
-    print(f'Type or copy the URL. Make sure that the URL ends on ".zip". Otherwise its can not be downloaded or '
-          f'unzipped. \n')
+    print(f'The second thing to do is to specify the URL.')
+    print(f'Type or copy the URL. Make sure that the URL ends on ".zip". Otherwise its can not be downloaded. \n')
     # url = input()
 
     zip_url = url.rsplit('.', 1)[-1]
