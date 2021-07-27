@@ -1,0 +1,59 @@
+import os
+import requests
+
+
+def url_path():
+    url = 'https://upload.uni-jena.de/data/60e5d639dd52a0.78161215/GEO419_Testdatensatz.zip'
+    #url = 'https://upload.uni-jena.de/data/660e5d639dd52a0.78161215/GEO419_Testdatensatz.zip'  # w_url
+
+    print(f'Example path (Windows): "C:/folder_name/"')
+    print(f'Example path (Linux): /home/user/Documents/ \n')
+    print(f'Type or copy the entire path to the working directory in the terminal/prompt. \n')
+    # path = input()
+    path = "/home/felix/Dokumente/"
+
+    special_characters = "!@#$%^&*()-+?_=,<>"
+
+    if any(c in special_characters for c in path):
+        print(f'Path contains special character(s). Please type or copy a new path \n')
+        while any(c in special_characters for c in path):
+            path = input()
+    else:
+        if os.path.exists(path):
+            print(f'Working directory is valid. \n')
+        else:
+            if not os.path.exists(path):
+                try:
+                    os.makedirs(os.path.dirname(path))
+                    print(f'Working directory is created')
+                except FileExistsError:
+                    print(f'Working directory already exists.')
+
+    # path = os.getcwd()
+
+    print(f'Type or copy the URL. Make sure that the URL ends on ".zip". Otherwise its can not be downloaded or '
+          f'unzipped. \n')
+    # url = input()
+
+    zip_url = url.rsplit('.', 1)[-1]
+    av = requests.head(url).status_code
+
+    if av == 200 and zip_url == 'zip':
+        print(f'URL is valid.')
+    else:
+        print(f'\n URL is not valid.')
+        while av != 200 or zip_url != "zip":
+            print(f'You can type a new URL or q to stop the download. \n')
+            url = input()
+            if url == "q":
+                print(f'Download stopped.')
+                break
+            elif url[:4] == "http":
+                zip_url = url.rsplit('.', 1)[-1]
+                av = requests.head(url).status_code
+                if av == 200 and zip_url == 'zip':
+                    print(f'URL valid.')
+            else:
+                pass
+
+    return url, path
