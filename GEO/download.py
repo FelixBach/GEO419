@@ -4,6 +4,7 @@ import requests
 
 def download(url, path):
     """This function is used to download a file from a URL
+
     :param url: string: Is the URL from which the download should be executed
     :param path: string: Is the path where the download file and other folders are created and the result is saved
     :return: Function has no return value

@@ -3,7 +3,7 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to GEO419's documentation!
+Welcome to GEO's documentation!
 ==================================
 
 .. toctree::
@@ -12,20 +12,20 @@ Welcome to GEO419's documentation!
 
 download
 ==================================
-.. automodule:: scripts.download
+.. automodule:: GEO.download
    :members:
 
 unzip
 ==================================
-.. automodule:: scripts.unzip
+.. automodule:: GEO.unzip
    :members:
 
 processing_img
 ==================================
-.. automodule:: scripts.processing_img
+.. automodule:: GEO.processing_img
    :members:
 
 plot
 ==================================
-.. automodule:: scripts.plot
+.. automodule:: GEO.plot
    :members:
