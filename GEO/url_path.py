@@ -20,8 +20,8 @@ def url_path():
     print(f'Example path (Linux): /home/user/Documents/ \n')
     print(f'Special Characters like {special_characters} are not allowed in the path name \n')
     print(f'Type or copy the entire path to the working directory in the terminal/prompt. \n')
-    path = input()
-    #path = "/home/felix/Dokumente/"
+    #path = input()
+    path = "/home/felix/Dokumente/"
 
     if any(c in special_characters for c in path):
         print(f'Path contains special character(s). Please type or copy a new path \n')
@@ -51,6 +51,12 @@ def url_path():
     print(f'The second thing to do is to specify the URL.')
     print(f'Type or copy the URL. Make sure that the URL ends on ".zip". Otherwise its can not be downloaded. \n')
     url = input()
+
+    while url[:4] != "http":
+        print(f'URL has to start with "http". Please enter a new one or type q to quit.')
+        url = input()
+        if url == "q":
+            break
 
     zip_url = url.rsplit('.', 1)[-1]
     av = requests.head(url).status_code
