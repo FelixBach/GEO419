@@ -10,7 +10,7 @@ def url_path():
     :return: String: url
     :return: String: path
     """
-    url = 'https://upload.uni-jena.de/data/60e5d639dd52a0.78161215/GEO419_Testdatensatz.zip'
+    #url = 'https://upload.uni-jena.de/data/60e5d639dd52a0.78161215/GEO419_Testdatensatz.zip'
     #url = 'https://upload.uni-jena.de/data/69990e5d639dd52a0.78161215/GEO419_Testdatensatz.zip'  # w_url
 
     special_characters = "!@#$%^&*()-+?_=,<>"
@@ -50,7 +50,13 @@ def url_path():
 
     print(f'The second thing to do is to specify the URL.')
     print(f'Type or copy the URL. Make sure that the URL ends on ".zip". Otherwise its can not be downloaded. \n')
-    #url = input()
+    url = input()
+
+    while url[:4] != "http":
+        print(f'URL has to start with "http". Please enter a new one or type q to quit.')
+        url = input()
+        if url == "q":
+            break
 
     zip_url = url.rsplit('.', 1)[-1]
     av = requests.head(url).status_code
