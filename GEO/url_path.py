@@ -10,8 +10,8 @@ def url_path():
     :return: String: url
     :return: String: path
     """
-    url = 'https://upload.uni-jena.de/data/60e5d639dd52a0.78161215/GEO419_Testdatensatz.zip'
-    #url = 'https://upload.uni-jena.de/data/660e5d639dd52a0.78161215/GEO419_Testdatensatz.zip'  # w_url
+    #url = 'https://upload.uni-jena.de/data/60e5d639dd52a0.78161215/GEO419_Testdatensatz.zip'
+    #url = 'https://upload.uni-jena.de/data/69990e5d639dd52a0.78161215/GEO419_Testdatensatz.zip'  # w_url
 
     special_characters = "!@#$%^&*()-+?_=,<>"
 
@@ -20,13 +20,23 @@ def url_path():
     print(f'Example path (Linux): /home/user/Documents/ \n')
     print(f'Special Characters like {special_characters} are not allowed in the path name \n')
     print(f'Type or copy the entire path to the working directory in the terminal/prompt. \n')
-    # path = input()
-    path = "/home/felix/Dokumente/"
+    path = input()
+    #path = "/home/felix/Dokumente/"
 
     if any(c in special_characters for c in path):
         print(f'Path contains special character(s). Please type or copy a new path \n')
         while any(c in special_characters for c in path):
             path = input()
+            if os.path.exists(path):
+                print(f'Working directory is valid. \n')
+            else:
+                if not os.path.exists(path):
+                    try:
+                        os.makedirs(os.path.dirname(path))
+                        print(f'Working directory is created')
+                    except FileExistsError:
+                        print(f'Working directory already exists.')
+
     else:
         if os.path.exists(path):
             print(f'Working directory is valid. \n')
@@ -40,7 +50,7 @@ def url_path():
 
     print(f'The second thing to do is to specify the URL.')
     print(f'Type or copy the URL. Make sure that the URL ends on ".zip". Otherwise its can not be downloaded. \n')
-    # url = input()
+    url = input()
 
     zip_url = url.rsplit('.', 1)[-1]
     av = requests.head(url).status_code
