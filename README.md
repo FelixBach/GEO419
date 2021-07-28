@@ -15,4 +15,5 @@ In case you have git installed you can install the package as follows:
   ```pip install git+https://github.com/FelixBach/GEO419.git@main```
 
 - If there are problems with the package, please open an [issue](https://github.com/FelixBach/GEO419/issues)
+- Please note that on Windows you might have to install GDAL and rasterio manually
 - If you have trouble installing rasterio or the needed GDAL package on Windows, download and install the .whl files directly from [here](https://www.lfd.uci.edu/~gohlke/pythonlibs/).
