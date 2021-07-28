@@ -10,9 +10,9 @@ def url_path():
     :return: String: url
     :return: String: path
     """
-    special_characters = "!@#$%^&*()-+?_=,<>"
+    special_characters = "!@#$%^&*()-+?=,<>"
 
-    print(f'First, the path of the working directory must be entered.')
+    print(f'\n First, the path of the working directory must be entered.')
     print(f'Example path (Windows): "C:/folder_name/"')
     print(f'Example path (Linux): /home/user/Documents/ \n')
     print(f'Special Characters like {special_characters} are not allowed in the path name \n')
