@@ -13,15 +13,17 @@ def url_path():
     #url = 'https://upload.uni-jena.de/data/60e5d639dd52a0.78161215/GEO419_Testdatensatz.zip'
     #url = 'https://upload.uni-jena.de/data/69990e5d639dd52a0.78161215/GEO419_Testdatensatz.zip'  # w_url
 
-    special_characters = "!@#$%^&*()-+?_=,<>"
+    special_characters = "!@#$%^&*()-+?=,<>"
 
     print(f'First, the path of the working directory must be entered.')
     print(f'Example path (Windows): "C:/folder_name/"')
     print(f'Example path (Linux): /home/user/Documents/ \n')
     print(f'Special Characters like {special_characters} are not allowed in the path name \n')
     print(f'Type or copy the entire path to the working directory in the terminal/prompt. \n')
-    #path = input()
-    path = "/home/felix/Dokumente/"
+    path = input()
+    #path = "C:\Users\Felix\Documents\UNIModule"
+    path = path.replace(os.sep, '/')
+    print(path)
 
     if any(c in special_characters for c in path):
         print(f'Path contains special character(s). Please type or copy a new path \n')
