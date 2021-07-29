@@ -20,7 +20,7 @@ In case you have git installed you can install the package as follows:
 ### Windows 10
 
 Please note that you have to install GDAL and rasterio manually.
-For this please download the binaries (.whl-files) from [here](https://www.lfd.uci.edu/~gohlke/pythonlibs/).
+To do this please download the binaries (.whl-files) from [here](https://www.lfd.uci.edu/~gohlke/pythonlibs/).
 
 After the download you can run the following code from the download folder like this:
 
